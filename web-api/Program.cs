@@ -4,7 +4,10 @@ using NestQuest.Services;
 using OverpassApiModel;
 using POI = PointOfInterest;
 
-var builder = WebApplication.CreateBuilder(args);
+// missing something here.  Read up on it here:
+// https://referbruv.com/blog/integrating-aspnet-core-api-versions-with-swagger-ui/#aioseo-solution-mapping-to-api-versions
+
+/*var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(o => o.UseSqlite("Data Source=nq.db"));
 builder.Services.AddScoped<CacheService<OverpassApiResponse>>();
 builder.Services.AddTransient<OverpassService>();
@@ -23,7 +26,7 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.UseSwagger();
-app.UseSwaggerUI(); 
+app.UseSwaggerUI(); // this needs to take an Options parameter now
 
 app.MapGet("/api/v0/homes", (double minLon, double minLat, double maxLon, double maxLat) => {
     var homes = new List<POI.Home>
@@ -123,3 +126,4 @@ app.MapGet("/api/v0/score-detail", async (CancellationToken token, AppDbContext 
 });
 
 app.Run();
+*/
