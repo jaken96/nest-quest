@@ -1,4 +1,4 @@
-using Criteria;
+/*using Criteria;
 using Microsoft.EntityFrameworkCore;
 using NestQuest.Services;
 using OverpassApiModel;
@@ -12,7 +12,7 @@ public class Startup
 
     public Startup(IConfiguration configuration)
     {
-        Configuration = configuration
+        Configuration = configuration;
     }
     public IConfiguration Configuration { get; }
     
@@ -55,3 +55,5 @@ public class Startup
         app.UseSwaggerUI(); // this needs to take an Options parameter now?  I don't know if this is used in final product
     }
 }
+
+*/

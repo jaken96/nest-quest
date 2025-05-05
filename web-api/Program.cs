@@ -7,12 +7,14 @@ using POI = PointOfInterest;
 // missing something here.  Read up on it here:
 // https://referbruv.com/blog/integrating-aspnet-core-api-versions-with-swagger-ui/#aioseo-solution-mapping-to-api-versions
 
-/*var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(o => o.UseSqlite("Data Source=nq.db"));
 builder.Services.AddScoped<CacheService<OverpassApiResponse>>();
 builder.Services.AddTransient<OverpassService>();
 builder.Services.AddTransient<EvaluationService>();
 builder.Services.AddSingleton(new RateLimiter(1, TimeSpan.FromSeconds(1)));
+
+builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -25,9 +27,11 @@ using (var scope = app.Services.CreateScope())
     dbContext.Database.Migrate();
 }
 
+app.MapControllers();
 app.UseSwagger();
-app.UseSwaggerUI(); // this needs to take an Options parameter now
+app.UseSwaggerUI(); // this needs to take an Options parameter when we implement ConfigureSwaggerOptions
 
+/*
 app.MapGet("/api/v0/homes", (double minLon, double minLat, double maxLon, double maxLat) => {
     var homes = new List<POI.Home>
     {
@@ -55,22 +59,6 @@ app.MapGet("/api/v0/homes", (double minLon, double minLat, double maxLon, double
     return Results.Ok(filteredHomes);
 });
 
-app.MapGet("/api/v0/attractions", async (CancellationToken token, OverpassService overpassService, double minLon, double minLat, double maxLon, double maxLat) =>
-{
-    var attractionLocations = new List<object>
-    {
-        new { location = new[] { 51.506, -0.095 }, type = "Grocery" },
-        new { location = new[] { 51.51, -0.08 }, type = "Airport" },
-        new { location = new[] { 51.52, -0.09 }, type = "Library" },
-        new { location = new[] { 51.507, -0.07 }, type = "Park" },
-        new { location = new[] { 51.52, -0.12 }, type = "School" },
-        new { location = new[] { 51.49, -0.06 }, type = "Grocery" },
-        new { location = new[] { 51.511, -0.1 }, type = "Library" },
-        new { location = new[] { 51.513, -0.11 }, type = "Park" }
-    };
-
-    return Results.Ok(attractionLocations);
-});
 
 // /api/v0/poi?cat=Park&minLat=51.47528888311576&maxLat=51.53459069801548&minLon=-0.1544952392578125&maxLon=-0.025577545166015625
 app.MapGet("/api/v0/poi", async (CancellationToken token, OverpassService overpassService, POI.Category cat, double minLon, double minLat, double maxLon, double maxLat) =>
@@ -124,6 +112,7 @@ app.MapGet("/api/v0/score-detail", async (CancellationToken token, AppDbContext 
     var score = await evaluationService.BinaryScoreDetail(lat, lon, criteria, token);
     return Results.Ok(score);
 });
+*/
 
 app.Run();
-*/
+

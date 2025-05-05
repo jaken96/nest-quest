@@ -1,9 +1,10 @@
 // Multiple API versions requires more structured management of Swagger configuration
 // NOTE:  this is a work in progress from the linked example:
 // https://referbruv.com/blog/integrating-aspnet-core-api-versions-with-swagger-ui/#aioseo-solution-mapping-to-api-versions
-namespace NestQuest.Services;
-
+//namespace NestQuest.Services;
+/*
 public class ConfigureSwaggerOptions : IConfigureNamedOptions<SwaggerGenOptions>
+
 {
     private readonly IApiVersionDescriptionProvider provider; // Not sure what this does yet
 
@@ -33,7 +34,8 @@ public class ConfigureSwaggerOptions : IConfigureNamedOptions<SwaggerGenOptions>
     {
         var info = new OpenApiInfo()
         {
-            Title = "Nest Quest, or Athena's Lodge, or something else fun and salient"
+            Title = "Nest Quest, or Athena's Lodge, or something else fun and salient",
+            Version = description.ApiVersion.ToString(),
             Version = description.ApiVersion.ToString()
         };
 
@@ -46,3 +48,5 @@ public class ConfigureSwaggerOptions : IConfigureNamedOptions<SwaggerGenOptions>
     }
 
 }
+
+*/
